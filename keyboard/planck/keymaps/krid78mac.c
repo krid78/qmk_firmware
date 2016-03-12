@@ -9,7 +9,7 @@
  */
 
 #include "planck.h"
-#include "keymap_german_osx.h"
+#include "keymap_extras/keymap_german_osx.h"
 #ifdef BACKLIGHT_ENABLE
   #include "backlight.h"
 #endif
@@ -57,7 +57,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   {DE_CIRC, DE_1,    DE_2,    DE_3,    DE_4,    DE_5,    DE_6,    DE_7,    DE_8,    DE_9,    DE_0,    KC_BSPC},
   {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, DE_LBRC, DE_RBRC, DE_HASH, DE_PLUS},
   {KC_TRNS, DE_LESS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, DE_PIPE, KC_BSPC},
-  {KC_TRNS, KC_RTL,  KC_RALT, KC_RGUI, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_MUTE, KC_VOLD, KC_VOLU, KC_MPLY}
+  {KC_TRNS, KC_RCTL,  KC_RALT, KC_RGUI, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_MUTE, KC_VOLD, KC_VOLU, KC_MPLY}
   /*------|--------|--------|--------|-Lower--|------Space------|-Raise--|--------|--------|--------|--------*/
 }, /* }}} */
 [_RS] = { /* RAISE (Right Modifier, orange) {{{
@@ -73,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     */
   {DE_TILD, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, DE_SS,   DE_ACUT},
   {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, DE_LCBR, DE_RCBR, DE_QUOT, DE_ASTR},
-  {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, de_BSLS, KC_TRNS},
+  {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, DE_BSLS, KC_TRNS},
   {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS}
   /*------|--------|--------|--------|-Lower--|------Space------|-Raise--|--------|--------|--------|--------*/
 }, /* }}} */
