@@ -1,52 +1,99 @@
-// This is the canonical layout file for the Quantum project. If you want to add another keyboard,
-// this is the style you want to emulate.
+/***********************************************************************
+ * File          :  krid78mac.c
+ * Author(s)     :  Daniel Kriesten
+ * Email         :  daniel@die-kriestens.de
+ * Creation Date :  Fr 11 Mär 22:40:59 2016
+ ***********************************************************************
+ * this is my PLANCK layout.
+ * I want a qwertz-layout, usable on a mac with no obious specialities.
+ */
 
 #include "planck.h"
+#include "keymap_german_osx.h"
 #ifdef BACKLIGHT_ENABLE
   #include "backlight.h"
 #endif
 
-// Each layer gets a name for readability, which is then used in the keymap matrix below.
-// The underscores don't mean anything - you can have a layer called STUFF or any other name.
-// Layer names don't all need to be of the same length, obviously, and you can also skip them
-// entirely and just use numbers.
-#define _QW 0
-#define _CM 1
-#define _DV 2
-#define _LW 3
-#define _RS 4
+/* Each layer gets a name for readability, which is then used in the keymap matrix below.
+ * The underscores don't mean anything - you can have a layer called STUFF or any other name.
+ * Layer names don't all need to be of the same length, obviously, and you can also skip them
+ * entirely and just use numbers.
+ */
+#define _QW 0   /* normal QWERTZ */
+#define _LW 1   /* lower key pressed */
+#define _RS 2   /* raise key pressed */
+#define _CM 3   /* bottom left key pressed */
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-[_QW] = { /* Qwerty */
-  {KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC},
-  {KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT},
-  {KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT },
-  {M(0),    KC_LCTL, KC_LALT, KC_LGUI, MO(_LW), KC_SPC,  KC_SPC,  MO(_RS), KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT}
-},
-[_CM] = { /* Colemak */
-  {KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_BSPC},
-  {KC_ESC,  KC_A,    KC_R,    KC_S,    KC_T,    KC_D,    KC_H,    KC_N,    KC_E,    KC_I,    KC_O,    KC_QUOT},
-  {KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT },
-  {M(0),    KC_LCTL, KC_LALT, KC_LGUI, MO(_LW), KC_SPC,  KC_SPC,  MO(_RS), KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT}
-},
-[_DV] = { /* Dvorak */
-  {KC_TAB,  KC_QUOT, KC_COMM, KC_DOT,  KC_P,    KC_Y,    KC_F,    KC_G,    KC_C,    KC_R,    KC_L,    KC_BSPC},
-  {KC_ESC,  KC_A,    KC_O,    KC_E,    KC_U,    KC_I,    KC_D,    KC_H,    KC_T,    KC_N,    KC_S,    KC_SLSH},
-  {KC_LSFT, KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    KC_ENT },
-  {M(0),    KC_LCTL, KC_LALT, KC_LGUI, MO(_LW), KC_SPC,  KC_SPC,  MO(_RS), KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT}
-},
-[_RS] = { /* RAISE */
-  {KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC},
-  {KC_TRNS, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_BSLS},
+[_QW] = { /* Qwerty {{{
+    * ,-----------------------------------------------------------------------.
+    * | Esc | q   | w   | e   | r   | t   | z   | u   | i   | o   | p   |  ü  |
+    * |-----------------------------------------------------------------------|
+    * | Tab | a   | s   | d   | f   | g   | h   | j   | k   | l   | ö   |  ä  |
+    * |-----------------------------------------------------------------------|
+    * | Sft | y   | x   | c   | v   | b   | n   | m   |  ,  |  .  |  -  | Ent |
+    * |-----------------------------------------------------------------------|
+    * | MO3 | Ctl | Alt | Gui |Lower|   Space   |Raise|Left |Down | Up  |Right|
+    * `-----------------------------------------------------------------------'
+    * Ent is tap-combined with L-Shift (R-Shift is not available)
+    */
+  {KC_TAB,  DE_Q,    DE_W,    DE_E,    DE_R,    DE_T,    DE_Z,    DE_U,    DE_I,    DE_O,    DE_P,    DE_UE},
+  {KC_ESC,  DE_A,    DE_S,    DE_D,    DE_F,    DE_G,    DE_H,    DE_J,    DE_K,    DE_L,    DE_OE,   DE_AE},
+  {KC_LSFT, DE_Z,    DE_X,    DE_C,    DE_V,    DE_B,    DE_N,    DE_M,    DE_COMM, DE_DOT,  DE_MINS, ALT_T(KC_ENT)},
+  {MO(_CM), KC_LCTL, KC_LALT, KC_LGUI, MO(_LW), KC_SPC,  KC_SPC,  MO(_RS), KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT}
+  /*------|--------|--------|--------|-Lower--|------Space------|-Raise--|--------|--------|--------|--------*/
+}, /* }}} */
+[_LW] = { /* LOWER (Left Modifier) {{{
+    * ,-----------------------------------------------------------------------.
+    * | ^   | 1   | 2   | 3   | 4   | 5   | 6   | 7   | 8   | 9   | 0   | Bspc|
+    * |-----------------------------------------------------------------------|
+    * | Tab | a   | s   | d   | f   | g   | h   | j   | k   | l   | [   |  ]  |
+    * |-----------------------------------------------------------------------|
+    * | Sft | y   | x   | c   | v   | b   | n   | m   |  ,  |  .  |  |  | Ent |
+    * |-----------------------------------------------------------------------|
+    * |     | RCtl| RAlt| RGui|Lower|   Space   |Raise| Mute| Vol-| Vol+| Play|
+    * `-----------------------------------------------------------------------'
+    */
+  {DE_CIRC, DE_1,    DE_2,    DE_3,    DE_4,    DE_5,    DE_6,    DE_7,    DE_8,    DE_9,    DE_0,    KC_BSPC},
+  {KC_TRNS, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_MINS, KC_EQL,  DE_LBRC, DE_LBRC, KC_RBRC},
   {KC_TRNS, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  DF(_QW), DF(_CM), DF(_DV), RESET,   KC_TRNS},
-  {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY}
-},
-[_LW] = { /* LOWER */
-  {KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC},
-  {KC_TRNS, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE},
-  {KC_TRNS, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  DF(_QW), DF(_CM), DF(_DV), RESET,   KC_TRNS},
-  {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY}
-}
+  {KC_TRNS, KC_RCTL, KC_RALT, KC_RGUI, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_MUTE, KC_VOLD, KC_VOLU, KC_MPLY}
+  /*------|--------|--------|--------|-Lower--|------Space------|-Raise--|--------|--------|--------|--------*/
+}, /* }}} */
+[_RS] = { /* RAISE (Right Modifier) {{{
+    * ,-----------------------------------------------------------------------.
+    * | Esc | q   | w   | e   | r   | t   | z   | u   | i   | o   | p   |  ü  |
+    * |-----------------------------------------------------------------------|
+    * | Tab | a   | s   | d   | f   | g   | h   | j   | k   | l   | {   |  }  |
+    * |-----------------------------------------------------------------------|
+    * | Sft | y   | x   | c   | v   | b   | n   | m   |  ,  |  .  |  -  | Ent |
+    * |-----------------------------------------------------------------------|
+    * |     | Ctl | Alt | Gui |Lower|   Space   |Raise|Left |Down | Up  |Right|
+    * `-----------------------------------------------------------------------'
+    */
+  {KC_TILD, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_BSPC},
+  {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, DE_LCBR, DE_RCBR},
+  {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS},
+  {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS}
+  /*------|--------|--------|--------|-Lower--|------Space------|-Raise--|--------|--------|--------|--------*/
+}, /* }}} */
+[_CM] = { /* Control Layer {{{
+    * ,-----------------------------------------------------------------------.
+    * | Esc | q   | w   | e   | r   | t   | z   | u   | i   | o   | p   |  ü  |
+    * |-----------------------------------------------------------------------|
+    * | Tab | a   | s   | d   | f   | g   | h   | j   | k   | l   | ö   |  ä  |
+    * |-----------------------------------------------------------------------|
+    * | Sft | y   | x   | c   | v   | b   | n   | m   |  ,  |  .  |  -  | Ent |
+    * |-----------------------------------------------------------------------|
+    * |     | Ctl | Alt | Gui |Lower|   Space   |Raise|Left |Down | Up  |Right|
+    * `-----------------------------------------------------------------------'
+    */
+  {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS},
+  {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS},
+  {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS},
+  {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS}
+  /*------|--------|--------|--------|-Lower--|------Space------|-Raise--|--------|--------|--------|--------*/
+} /* }}} */
 };
 
 const uint16_t PROGMEM fn_actions[] = {
