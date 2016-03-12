@@ -62,7 +62,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 }, /* }}} */
 [_RS] = { /* RAISE (Right Modifier, orange) {{{
     * ,-----------------------------------------------------------------------.
-    * |  ´  | F1  | F2  | F3  | F4  | F5  | F6  | F7  | F8  | F9  | F10 | ß   |
+    * | ~   |     |     |     |     |     |     |     |     |     | ß   | ´   |
     * |-----------------------------------------------------------------------|
     * |     |     |     |     |     |     |     |     | {   | }   | '   | *   |
     * |-----------------------------------------------------------------------|
@@ -71,7 +71,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     * |     |     |     |     |     |           |     |     |     |     |     |
     * `-----------------------------------------------------------------------'
     */
-  {DE_ACUT, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  DE_SS},
+  {DE_TILD, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, DE_SS,   DE_ACUT},
   {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, DE_LCBR, DE_RCBR, DE_QUOT, DE_ASTR},
   {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, de_BSLS, KC_TRNS},
   {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS}
@@ -81,17 +81,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     * ,-----------------------------------------------------------------------.
     * |     |     |     |     |     |     |     |     |     |     |     | `   |
     * |-----------------------------------------------------------------------|
-    * |     |     |     |     |     |     |     |     |     |     |     |     |
+    * | F1  | F2  | F3  | F4  | F5  | F6  | F7  | F8  | F9  | F10 | F11 | F12 |
     * |-----------------------------------------------------------------------|
     * |     |     |     |     |     |     |     |     |     |     |     |     |
     * |-----------------------------------------------------------------------|
-    * |     |     |     |     |     |           |     |     |     |     |     |
+    * |     |     |     |     |     |           |     |     | Blt-| Blt+|     |
     * `-----------------------------------------------------------------------'
     */
   {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, DE_ACUT},
   {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS},
   {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS},
-  {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS}
+  {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, M(0),    M(1),    KC_TRNS}
   /*------|--------|--------|--------|-Lower--|------Space------|-Raise--|--------|--------|--------|--------*/
 } /* }}} */
 };
@@ -108,7 +108,17 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
           if (record->event.pressed) {
             register_code(KC_RSFT);
             #ifdef BACKLIGHT_ENABLE
-              backlight_step();
+              backlight_decrease();
+            #endif
+          } else {
+            unregister_code(KC_RSFT);
+          }
+        break;
+        case 1:
+          if (record->event.pressed) {
+            register_code(KC_RSFT);
+            #ifdef BACKLIGHT_ENABLE
+              backlight_increase();
             #endif
           } else {
             unregister_code(KC_RSFT);
