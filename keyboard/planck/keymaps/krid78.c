@@ -5,7 +5,7 @@
  * Creation Date :  Fr 11 Mär 22:40:59 2016
  ***********************************************************************
  * this is my PLANCK layout.
- * I want a qwertz-layout, usable on a mac with no obious specialities.
+ * I want a qwertz-layout, usable on a mac with no obvious specialities.
  */
 
 #include "planck.h"
@@ -43,52 +43,52 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   {MO(_CM), KC_LCTL, KC_LALT, KC_LGUI, MO(_LW), KC_SPC,  KC_SPC,  MO(_RS), KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT}
   /*------|--------|--------|--------|-Lower--|------Space------|-Raise--|--------|--------|--------|--------*/
 }, /* }}} */
-[_LW] = { /* LOWER (Left Modifier) {{{
+[_LW] = { /* LOWER (Left Modifier, blue) {{{
     * ,-----------------------------------------------------------------------.
     * | ^   | 1   | 2   | 3   | 4   | 5   | 6   | 7   | 8   | 9   | 0   | Bspc|
     * |-----------------------------------------------------------------------|
-    * | Tab | a   | s   | d   | f   | g   | h   | j   | k   | l   | [   |  ]  |
+    * |     |     |     |     |     |     |     |     | [   | ]   | #   | +   |
     * |-----------------------------------------------------------------------|
-    * | Sft | y   | x   | c   | v   | b   | n   | m   |  ,  |  .  |  |  | Ent |
+    * |     | <   |     |     |     |     |     |     |     |     | |   | Bspc|
     * |-----------------------------------------------------------------------|
     * |     | RCtl| RAlt| RGui|Lower|   Space   |Raise| Mute| Vol-| Vol+| Play|
     * `-----------------------------------------------------------------------'
     */
   {DE_CIRC, DE_1,    DE_2,    DE_3,    DE_4,    DE_5,    DE_6,    DE_7,    DE_8,    DE_9,    DE_0,    KC_BSPC},
-  {KC_TRNS, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_MINS, KC_EQL,  DE_LBRC, DE_LBRC, KC_RBRC},
-  {KC_TRNS, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  DF(_QW), DF(_CM), DF(_DV), RESET,   KC_TRNS},
-  {KC_TRNS, KC_RCTL, KC_RALT, KC_RGUI, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_MUTE, KC_VOLD, KC_VOLU, KC_MPLY}
+  {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, DE_LBRC, DE_RBRC, DE_HASH, DE_PLUS},
+  {KC_TRNS, DE_LESS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, DE_PIPE, KC_BSPC},
+  {KC_TRNS, KC_RTL,  KC_RALT, KC_RGUI, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_MUTE, KC_VOLD, KC_VOLU, KC_MPLY}
   /*------|--------|--------|--------|-Lower--|------Space------|-Raise--|--------|--------|--------|--------*/
 }, /* }}} */
-[_RS] = { /* RAISE (Right Modifier) {{{
+[_RS] = { /* RAISE (Right Modifier, orange) {{{
     * ,-----------------------------------------------------------------------.
-    * | Esc | q   | w   | e   | r   | t   | z   | u   | i   | o   | p   |  ü  |
+    * |  ´  | F1  | F2  | F3  | F4  | F5  | F6  | F7  | F8  | F9  | F10 | ß   |
     * |-----------------------------------------------------------------------|
-    * | Tab | a   | s   | d   | f   | g   | h   | j   | k   | l   | {   |  }  |
+    * |     |     |     |     |     |     |     |     | {   | }   | '   | *   |
     * |-----------------------------------------------------------------------|
-    * | Sft | y   | x   | c   | v   | b   | n   | m   |  ,  |  .  |  -  | Ent |
+    * |     |     |     |     |     |     |     |     |     |     | \   |     |
     * |-----------------------------------------------------------------------|
-    * |     | Ctl | Alt | Gui |Lower|   Space   |Raise|Left |Down | Up  |Right|
+    * |     |     |     |     |     |           |     |     |     |     |     |
     * `-----------------------------------------------------------------------'
     */
-  {KC_TILD, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_BSPC},
-  {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, DE_LCBR, DE_RCBR},
-  {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS},
+  {DE_ACUT, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  DE_SS},
+  {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, DE_LCBR, DE_RCBR, DE_QUOT, DE_ASTR},
+  {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, de_BSLS, KC_TRNS},
   {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS}
   /*------|--------|--------|--------|-Lower--|------Space------|-Raise--|--------|--------|--------|--------*/
 }, /* }}} */
 [_CM] = { /* Control Layer {{{
     * ,-----------------------------------------------------------------------.
-    * | Esc | q   | w   | e   | r   | t   | z   | u   | i   | o   | p   |  ü  |
+    * |     |     |     |     |     |     |     |     |     |     |     | `   |
     * |-----------------------------------------------------------------------|
-    * | Tab | a   | s   | d   | f   | g   | h   | j   | k   | l   | ö   |  ä  |
+    * |     |     |     |     |     |     |     |     |     |     |     |     |
     * |-----------------------------------------------------------------------|
-    * | Sft | y   | x   | c   | v   | b   | n   | m   |  ,  |  .  |  -  | Ent |
+    * |     |     |     |     |     |     |     |     |     |     |     |     |
     * |-----------------------------------------------------------------------|
-    * |     | Ctl | Alt | Gui |Lower|   Space   |Raise|Left |Down | Up  |Right|
+    * |     |     |     |     |     |           |     |     |     |     |     |
     * `-----------------------------------------------------------------------'
     */
-  {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS},
+  {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, DE_ACUT},
   {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS},
   {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS},
   {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS}
