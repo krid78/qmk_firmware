@@ -62,20 +62,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 }, /* }}} */
 [_RS] = { /* RAISE (Right Modifier, orange) {{{
     * ,-----------------------------------------------------------------------.
-    * | ~   |     |     |     |     |     |     |     |     |     | ß   | ´   |
+    * | !   | "   | §   | $   | %   | &   | /   | (   | )   | =   | ?   | ´   |
     * |-----------------------------------------------------------------------|
-    * |     |     |     |     |     |     |     |     | {   | }   | '   | *   |
+    * | ^   |     |     |     |     |     |     |     | {   | }   | '   | *   |
     * |-----------------------------------------------------------------------|
-    * |     |     |     |     |     |     |     |     |     |     | \   |     |
+    * |     | >   |     |     |     |     |     |     |     |     | \   |     |
     * |-----------------------------------------------------------------------|
     * |     |     |     |     |     |           |     |     |     |     |     |
     * `-----------------------------------------------------------------------'
     */
-  {DE_CIRC, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, DE_SS,   DE_ACUT},
-  {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, DE_LCBR, DE_RCBR, DE_QUOT, DE_ASTR},
-  {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, DE_BSLS, KC_TRNS},
+  {DE_EXLM, DE_DQOT, DE_PARA, DE_DLR,  DE_PERC, DE_AMPR, DE_SLSH, DE_LPRN, DE_RPRN, DE_EQL,  DE_QST,  DE_ACUT},
+  {KC_CIRC, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, DE_LCBR, DE_RCBR, DE_QUOT, DE_ASTR},
+  {KC_TRNS, DE_MORE, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, DE_BSLS, KC_TRNS},
   {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS}
   /*------|--------|--------|--------|-Lower--|------Space------|-Raise--|--------|--------|--------|--------*/
+
+
 }, /* }}} */
 [_CM] = { /* Control Layer {{{
     * ,-----------------------------------------------------------------------.
