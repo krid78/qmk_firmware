@@ -45,7 +45,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 }, /* }}} */
 [_LW] = { /* LOWER (Left Modifier, blue) {{{
     * ,-----------------------------------------------------------------------.
-    * | ^   | 1   | 2   | 3   | 4   | 5   | 6   | 7   | 8   | 9   | 0   | Bspc|
+    * | 1   | 2   | 3   | 4   | 5   | 6   | 7   | 8   | 9   | 0   | ß   | Bspc|
     * |-----------------------------------------------------------------------|
     * |     |     |     |     |     |     |     |     | [   | ]   | #   | +   |
     * |-----------------------------------------------------------------------|
@@ -54,7 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     * |     | RCtl| RAlt| RGui|Lower|   Space   |Raise| Mute| Vol-| Vol+| Play|
     * `-----------------------------------------------------------------------'
     */
-  {DE_CIRC, DE_1,    DE_2,    DE_3,    DE_4,    DE_5,    DE_6,    DE_7,    DE_8,    DE_9,    DE_0,    KC_BSPC},
+  {DE_1,    DE_2,    DE_3,    DE_4,    DE_5,    DE_6,    DE_7,    DE_8,    DE_9,    DE_0,    DE_SS,   KC_BSPC},
   {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, DE_LBRC, DE_RBRC, DE_HASH, DE_PLUS},
   {KC_TRNS, DE_LESS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, DE_PIPE, KC_TRNS},
   {KC_TRNS, KC_RCTL,  KC_RALT, KC_RGUI, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_MUTE, KC_VOLD, KC_VOLU, KC_MPLY}
@@ -71,7 +71,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     * |     |     |     |     |     |           |     |     |     |     |     |
     * `-----------------------------------------------------------------------'
     */
-  {DE_TILD, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, DE_SS,   DE_ACUT},
+  {DE_CIRC, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, DE_SS,   DE_ACUT},
   {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, DE_LCBR, DE_RCBR, DE_QUOT, DE_ASTR},
   {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, DE_BSLS, KC_TRNS},
   {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS}
