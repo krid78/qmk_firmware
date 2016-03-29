@@ -51,7 +51,6 @@ TARGET_DIR = .
 
 # # project specific files
 SRC = kc60.c \
-	matrix.c \
 	backlight.c \
 	led.c
 
