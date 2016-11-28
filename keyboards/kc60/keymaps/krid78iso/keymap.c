@@ -32,12 +32,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * thus what ever is given in at pos 4,13 is key 4,14
      */
     [0] = KEYMAP( /* Basic Mac QWERTZ */
-        KC_ESC,  DE_OSX_1,    DE_OSX_2, DE_OSX_3, DE_OSX_4, DE_OSX_5, DE_OSX_6, DE_OSX_7, DE_OSX_8, DE_OSX_9,    DE_OSX_0,   DE_OSX_SS,   DE_OSX_ACUT, KC_BSPC,     \
+        KC_ESC,  DE_OSX_1,    DE_OSX_2, DE_OSX_3, DE_OSX_4, DE_OSX_5, DE_OSX_6, DE_OSX_7, DE_OSX_8, DE_OSX_9,    DE_OSX_0,   DE_OSX_SS,   DE_OSX_ACUT, KC_BSPC, \
         F(0),    DE_OSX_Q,    DE_OSX_W, DE_OSX_E, DE_OSX_R, DE_OSX_T, DE_OSX_Z, DE_OSX_U, DE_OSX_I, DE_OSX_O,    DE_OSX_P,   DE_OSX_UE,   DE_OSX_PLUS, DE_OSX_PIPE, \
-        MO(1),   DE_OSX_A,    DE_OSX_S, DE_OSX_D, DE_OSX_F, DE_OSX_G, DE_OSX_H, DE_OSX_J, DE_OSX_K, DE_OSX_L,    DE_OSX_OE,  DE_OSX_AE,   DE_OSX_HASH, KC_ENT,      \
-        KC_LSFT, DE_OSX_LESS, DE_OSX_Y, DE_OSX_X, DE_OSX_C, DE_OSX_V, DE_OSX_B, DE_OSX_N, DE_OSX_M, DE_OSX_COMM, DE_OSX_DOT, DE_OSX_MINS, KC_ENT,      KC_RSFT,     \
-        KC_LCTL, KC_LALT,     KC_LGUI,                      KC_SPC,                                 KC_NO,       KC_LEFT,    KC_DOWN,     KC_UP,       KC_RGHT \
-        ),
+        MO(1),   DE_OSX_A,    DE_OSX_S, DE_OSX_D, DE_OSX_F, DE_OSX_G, DE_OSX_H, DE_OSX_J, DE_OSX_K, DE_OSX_L,    DE_OSX_OE,  DE_OSX_AE,   DE_OSX_HASH, KC_ENT, \
+        KC_LSFT, DE_OSX_LESS, DE_OSX_Y, DE_OSX_X, DE_OSX_C, DE_OSX_V, DE_OSX_B, DE_OSX_N, DE_OSX_M, DE_OSX_COMM, DE_OSX_DOT, DE_OSX_MINS, KC_ENT,      KC_RSFT, \
+        KC_LCTL, KC_LALT,     KC_LGUI,  KC_SPC,   KC_NO,    KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT),
     /* Keymap 1: Fn Layer
      * ,-----------------------------------------------------------.
      * |  ^| F1| F2| F3| F4| F5| F6| F7| F8| F9|F10|F11|F12|Delete |
@@ -71,11 +70,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * `-----------------------------------------------------------'
      */
     [2] = KEYMAP( /* control layer */
-        RESET,   M(0),    M(1),    M(2),    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_PWR,  \
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, \
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,\
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,\
-        KC_LCTL, KC_LALT, KC_LGUI,                   KC_SPC,                             KC_NO,   BL_TOGG, BL_DEC,  BL_INC,  KC_TRNS),
+        RESET,   M(0),    M(1),    M(2),    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_PWR,  \
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, \
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, \
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, \
+        KC_LCTL, KC_LALT, KC_LGUI, KC_SPC,  KC_NO,   BL_TOGG, BL_DEC,  BL_INC,  KC_TRNS),
 };
 
 /*
