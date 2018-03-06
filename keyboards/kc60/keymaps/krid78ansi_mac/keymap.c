@@ -1,5 +1,5 @@
 /***********************************************************************
- * File          :  krid78ansi
+ * File          :  krid78ansi_mac
  * Author(s)     :  Daniel Kriesten
  * Email         :  daniel@die-kriestens.de
  * Creation Date :  Do 24 Mär 17:43:21 2016

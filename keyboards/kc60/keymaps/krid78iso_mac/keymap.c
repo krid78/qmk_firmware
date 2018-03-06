@@ -1,5 +1,5 @@
 /***********************************************************************
- * File          :  krid78iso
+ * File          :  krid78iso_mac
  * Author(s)     :  Daniel Kriesten
  * Email         :  daniel@die-kriestens.de
  * Creation Date :  Mo 18 Apr 07:45:37 2016 @USER@
