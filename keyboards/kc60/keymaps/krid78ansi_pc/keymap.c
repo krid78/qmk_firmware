@@ -95,37 +95,29 @@ const uint16_t PROGMEM fn_actions[] = {
 
 const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
 {
-  // MACRODOWN only works in this function
-  switch(id) {
-    case 0: // this would trigger when you hit a key mapped as M(0)
-      if (record->event.pressed) {
-#ifdef MAC_PWD
-        return MAC_PWD;
-#else
-        return MACRO( I(255), T(H), T(E), T(L), T(L), W(255), T(O), END  );
-#endif
-      }
-      break;
-    case 1: // this would trigger when you hit a key mapped as M(1)
-      if (record->event.pressed) {
-#ifdef TUC_PWD
-        return TUC_PWD;
-#else
-        return MACRO( I(255), T(H), T(E), T(L), T(L), W(255), T(O), END  );
-#endif
-      }
-      break;
-    case 2: // this would trigger when you hit a key mapped as M(2)
-      if (record->event.pressed) {
+    // MACRODOWN only works in this function
+    switch(id) {
+        case 0: // this would trigger when you hit a key mapped as M(0)
+            if (record->event.pressed) {
 #ifdef ONE_PWD
-        return ONE_PWD;
+                return ONE_PWD;
 #else
-        return MACRO( I(255), T(H), T(E), T(L), T(L), W(255), T(O), END  );
+                return MACRO( I(255), T(H), T(E), T(L), T(L), W(255), T(O), END  );
 #endif
-      }
-      break;
-  }
-  return MACRO_NONE;
+            }
+            break;
+        case 1: // this would trigger when you hit a key mapped as M(1)
+            if (record->event.pressed) {
+                return MACRO( I(255), T(H), T(E), T(L), T(L), W(255), T(O), END  );
+            }
+            break;
+        case 2: // this would trigger when you hit a key mapped as M(2)
+            if (record->event.pressed) {
+                return MACRO( I(255), T(H), T(E), T(L), T(L), W(255), T(O), END  );
+            }
+            break;
+    }
+    return MACRO_NONE;
 };
 
 /*
