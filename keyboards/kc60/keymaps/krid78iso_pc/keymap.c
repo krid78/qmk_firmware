@@ -79,7 +79,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |-----------------------------------------------------------|
      * |        |  <|   |   |   |   |   |   |   |   |   |          |
      * |-----------------------------------------------------------|
-     * |Blt0|Blt-|Blt+|      Space             |Blt0|Blt-|Blt+|    |
+     * |Blt0|Blt-|Blt+|      Space             |Mute|Vol-|Vol+|    |
      * `-----------------------------------------------------------'
      */
     [_LYR2] = KEYMAP( /* control layer */
@@ -87,7 +87,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, \
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, \
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_LEAD, KC_RSFT, \
-        BL_TOGG, BL_DEC,  BL_INC,                    KC_SPC,  KC_NO,                               BL_TOGG, BL_DEC,  BL_INC,  KC_TRNS),
+        BL_TOGG, BL_DEC,  BL_INC,                    KC_SPC,  KC_NO,                               KC_MUTE, KC_VOLD, KC_VOLU, KC_TRNS),
 };
 
 /*
