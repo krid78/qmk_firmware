@@ -14,24 +14,27 @@
 #endif
 #include "krid78pwd.h"
 
+/* shortcuts to improve readability */
+#define DUALTAB LT(_LYR2, KC_TAB)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* Keymap 0: Default Layer
      * ,-----------------------------------------------------------.
      * |Esc|  1|  2|  3|  4|  5|  6|  7|  8|  9|  0|  ß|  ´|Backsp |
      * |-----------------------------------------------------------|
-     * |Tab  |  Q|  W|  E|  R|  T|  Z|  U|  I|  O|  P|  Ü|  +|    #|
+     * |DTab |  Q|  W|  E|  R|  T|  Z|  U|  I|  O|  P|  Ü|  +|    #|
      * |-----------------------------------------------------------|
-     * |FN0   |  A|  S|  D|  F|  G|  H|  J|  K|  L|  Ö|  Ä|  Return|
+     * |MO(1) |  A|  S|  D|  F|  G|  H|  J|  K|  L|  Ö|  Ä|  Return|
      * |-----------------------------------------------------------|
      * |LShift  |  Y|  X|  C|  V|  B|  N|  M|  ,|  .|  -|    RShift|
      * |-----------------------------------------------------------|
      * |Ctrl|LAlt|LGui|      Space             |Left|Down|  Up|Righ|
      * `-----------------------------------------------------------'
-     * FN7 - is Tab or switches to Layer2
+     * DTab is Tab or switches to Layer2
      */
     [0] = KEYMAP( /* Basic Mac QWERTZ on ANSI keyboard */
         KC_ESC,  DE_OSX_1, DE_OSX_2, DE_OSX_3, DE_OSX_4, DE_OSX_5, DE_OSX_6, DE_OSX_7, DE_OSX_8, DE_OSX_9,    DE_OSX_0,   DE_OSX_SS,   DE_OSX_ACUT, KC_BSPC, \
-        F(0),    DE_OSX_Q, DE_OSX_W, DE_OSX_E, DE_OSX_R, DE_OSX_T, DE_OSX_Z, DE_OSX_U, DE_OSX_I, DE_OSX_O,    DE_OSX_P,   DE_OSX_UE,   DE_OSX_PLUS, DE_OSX_HASH, \
+        DUALTAB, DE_OSX_Q, DE_OSX_W, DE_OSX_E, DE_OSX_R, DE_OSX_T, DE_OSX_Z, DE_OSX_U, DE_OSX_I, DE_OSX_O,    DE_OSX_P,   DE_OSX_UE,   DE_OSX_PLUS, DE_OSX_HASH, \
         MO(1),   DE_OSX_A, DE_OSX_S, DE_OSX_D, DE_OSX_F, DE_OSX_G, DE_OSX_H, DE_OSX_J, DE_OSX_K, DE_OSX_L,    DE_OSX_OE,  DE_OSX_AE,   KC_NO,       KC_ENT, \
         KC_LSFT, KC_NO,    DE_OSX_Y, DE_OSX_X, DE_OSX_C, DE_OSX_V, DE_OSX_B, DE_OSX_N, DE_OSX_M, DE_OSX_COMM, DE_OSX_DOT, DE_OSX_MINS, KC_RSFT,     KC_NO, \
         KC_LCTL, KC_LALT,  KC_LGUI,  KC_SPC,   KC_NO,    KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT),
@@ -39,9 +42,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * ,-----------------------------------------------------------.
      * |  ^| F1| F2| F3| F4| F5| F6| F7| F8| F9|F10|F11|F12|Delete |
      * |-----------------------------------------------------------|
-     * |Tab  |   |   |   |   |   |   |   |   |   |   |FN4|FN5|  FN6|
+     * |DTab |   |   |   |   |   |   |   |   |   |   |  {|  }|    ||
      * |-----------------------------------------------------------|
-     * |FN0   |   |   |   |   |   |Lef|Dow| Up|Rgh|FN2|FN3|  Return|
+     * |      |   |   |   |   |   |Lef|Dow| Up|Rgh|  [|  ]|  Return|
      * |-----------------------------------------------------------|
      * |LShift  |  <|   |   |   |   |   |   |   |   |   |    Rshift|
      * |-----------------------------------------------------------|
@@ -53,7 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TRNS,     KC_TRNS, KC_TRNS,     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS,     DE_OSX_LCBR, DE_OSX_RCBR, DE_OSX_PIPE, \
         KC_TRNS,     KC_TRNS, KC_TRNS,     KC_TRNS, KC_TRNS, KC_TRNS, KC_LEFT, KC_DOWN, KC_UP,    KC_RGHT, DE_OSX_LBRC, DE_OSX_RBRC, KC_NO,       KC_TRNS,     \
         KC_TRNS,     KC_NO,   DE_OSX_LESS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS,     KC_TRNS,     KC_TRNS,     KC_NO,       \
-        KC_RCTL,     KC_RALT, KC_RGUI,     KC_SPC,  KC_NO,   KC_MUTE, KC_VOLD, KC_VOLU, KC_MPLY),
+        KC_RCTL,     KC_RALT, KC_RGUI,                       KC_SPC,  KC_NO,                               KC_MUTE,     KC_VOLD,     KC_VOLU,    aKC_MPLY),
     /* Keymap 2: Fn Layer
      * ,-----------------------------------------------------------.
      * |RESET| M0| M1| M2|   |   |   |   |   |   |   |   |   | Pwr |
@@ -62,7 +65,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |-----------------------------------------------------------|
      * |      |   |   |   |   |   |   |   |   |   |   |   |        |
      * |-----------------------------------------------------------|
-     * |        |  <|   |   |   |   |   |   |   |   |   |          |
+     * |        |   |   |   |   |   |   |   |   |   |   |          |
      * |-----------------------------------------------------------|
      * |Ctrl|LAlt|LGui|      Space             |Blt0|Blt-|Blt+|    |
      * `-----------------------------------------------------------'
@@ -72,16 +75,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, \
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_NO,   KC_TRNS, \
         KC_TRNS, KC_NO,   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO,   \
-        KC_LCTL, KC_LALT, KC_LGUI, KC_SPC,  KC_NO,   BL_TOGG, BL_DEC,  BL_INC,  KC_TRNS),
+        KC_LCTL, KC_LALT, KC_LGUI,                   KC_SPC,  KC_NO,                               BL_TOGG, BL_DEC,  BL_INC,  KC_TRNS),
 };
 
 /*
  * Fn action definition
  */
 const uint16_t PROGMEM fn_actions[] = {
-    [0] = ACTION_LAYER_TAP_KEY(2, KC_TAB), // Tab or FN2
+    /* [0] = ACTION_LAYER_TAP_KEY(2, KC_TAB), // Tab or FN2 */
     /* [1] = ACTION_BACKLIGHT_TOGGLE(),       // Backlight */
-    /* [2] = ACTION_BACKLIGHT_DE_OSXCREASE(),     // Backlight- */
+    /* [2] = ACTION_BACKLIGHT_DE_OSXCREASE(), // Backlight- */
     /* [3] = ACTION_BACKLIGHT_INCREASE(),     // Backlight+ */
 };
 
