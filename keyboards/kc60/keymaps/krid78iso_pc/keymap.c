@@ -7,8 +7,6 @@
  * TODO: What is this file for?
  */
 
-
-
 #include "kc60.h"
 #include "keymap_extras/keymap_german.h"
 #ifdef BACKLIGHT_ENABLE
@@ -34,15 +32,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * ,-----------------------------------------------------------.
      * |Esc|  1|  2|  3|  4|  5|  6|  7|  8|  9|  0|  ß|  ´|Backsp |
      * |-----------------------------------------------------------|
-     * |Tab  |  Q|  W|  E|  R|  T|  Z|  U|  I|  O|  P|  Ü|  +|    \|
+     * |DTab |  Q|  W|  E|  R|  T|  Z|  U|  I|  O|  P|  Ü|  +|    \|
      * |-----------------------------------------------------------|
-     * |FN0   |  A|  S|  D|  F|  G|  H|  J|  K|  L|  Ö|  Ä|  #|Retn|
+     * |MO(1) |  A|  S|  D|  F|  G|  H|  J|  K|  L|  Ö|  Ä|  #|Retn|
      * |-----------------------------------------------------------|
      * |LSft|  <|  Y|  X|  C|  V|  B|  N|  M|  ,|  .|  -|RShift|Lead| <- remember: those two keys are exchanged
      * |-----------------------------------------------------------|
      * |Ctrl|LAlt|LGui|      Space             |Left|Down|  Up|Righ|
      * `-----------------------------------------------------------'
-     * FN0 - is Tab or switches to Layer2
+     * DTab is Tab or switches to Layer2
      * the last two keys in the 4th row are pysically exchanged ->
      * thus what ever is given in at pos 4,13 is key 4,14
      */
@@ -56,7 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * ,-----------------------------------------------------------.
      * |  ^| F1| F2| F3| F4| F5| F6| F7| F8| F9|F10|F11|F12|Delete |
      * |-----------------------------------------------------------|
-     * |     |   |   |   |   |   |   |   |   |   |   |  {|  }|    ||
+     * |DTab |  @|   |   |   |   |   |   |   |   |   |  {|  }|  Ins|
      * |-----------------------------------------------------------|
      * |      |   |   |   |   |   |Lef|Dow| Up|Rgh|  [|  ]|  ||Retn|
      * |-----------------------------------------------------------|
@@ -67,7 +65,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [_LYR1] = KEYMAP( /* Fn-Layer */
         DE_CIRC, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,    KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_DEL,  \
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, DE_LCBR, DE_RCBR, DE_PIPE, \
+        KC_TRNS, DE_AT,   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, DE_LCBR, DE_RCBR, KC_INS, \
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_LEFT, KC_DOWN, KC_UP,    KC_RGHT, DE_LBRC, DE_RBRC, DE_PIPE, KC_TRNS, \
         KC_LSFT, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_LEAD, KC_RSFT, \
         KC_RCTL, KC_RGUI, KC_RALT,                   KC_SPC,  KC_NO,                               KC_MUTE, KC_VOLD, KC_VOLU, KC_MPLY),
@@ -81,7 +79,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |-----------------------------------------------------------|
      * |        |  <|   |   |   |   |   |   |   |   |   |          |
      * |-----------------------------------------------------------|
-     * |Ctrl|LAlt|LGui|      Space             |Blt0|Blt-|Blt+|    |
+     * |Blt0|Blt-|Blt+|      Space             |Blt0|Blt-|Blt+|    |
      * `-----------------------------------------------------------'
      */
     [_LYR2] = KEYMAP( /* control layer */
@@ -89,7 +87,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, \
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, \
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_LEAD, KC_RSFT, \
-        KC_LCTL, KC_LGUI, KC_LALT,                   KC_SPC,  KC_NO,                               BL_TOGG, BL_DEC,  BL_INC,  KC_TRNS),
+        BL_TOGG, BL_DEC,  BL_INC,                    KC_SPC,  KC_NO,                               BL_TOGG, BL_DEC,  BL_INC,  KC_TRNS),
 };
 
 /*
