@@ -17,7 +17,7 @@
 /** Timeout for the leader
  */
 #undef LEADER_TIMEOUT
-#define LEADER_TIMEOUT 800
+#define LEADER_TIMEOUT 500
 
 /* Layer names */
 #define _BASE 0
@@ -54,13 +54,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * ,-----------------------------------------------------------.
      * |  ^| F1| F2| F3| F4| F5| F6| F7| F8| F9|F10|F11|F12|Delete |
      * |-----------------------------------------------------------|
-     * |DTab |  @|   |   |   |   |   |   |   |   |   |  {|  }|  Ins|
+     * |     |  @|   |   |   |   |   |   |   |   |   |  {|  }|  Ins|
      * |-----------------------------------------------------------|
      * |      |   |   |   |   |   |Lef|Dow| Up|Rgh|  [|  ]|  ||Retn|
      * |-----------------------------------------------------------|
      * |LShift  |   |   |   |   |   |   |   |   |   |   |Rshift|Lead|
      * |-----------------------------------------------------------|
-     * |RCtl|RAlt|RGui|      Space             |Mute|Vol-|Vol+|Play|
+     * |RCtl|RAlt|RGui|      Space             |Home|PGDN|PGUP| End|
      * `-----------------------------------------------------------'
      */
     [_LYR1] = KEYMAP( /* Fn-Layer */
@@ -68,7 +68,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TRNS, DE_AT,   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, DE_LCBR, DE_RCBR, KC_INS, \
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_LEFT, KC_DOWN, KC_UP,    KC_RGHT, DE_LBRC, DE_RBRC, DE_PIPE, KC_TRNS, \
         KC_LSFT, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_LEAD, KC_RSFT, \
-        KC_RCTL, KC_RGUI, KC_RALT,                   KC_SPC,  KC_NO,                               KC_MUTE, KC_VOLD, KC_VOLU, KC_MPLY),
+        KC_RCTL, KC_RGUI, DE_ALGR,                   KC_SPC,  KC_NO,                               KC_HOME, KC_PGDN, KC_PGUP, KC_END),
     /* Keymap 2: Fn Layer
      * ,-----------------------------------------------------------.
      * |RESET| M0| M1| M2|   |   |   |   |   |   |   |   |   | Pwr |
@@ -155,10 +155,10 @@ void matrix_scan_user(void) {
         }
         /** some often used sentences, Insert ... */
         SEQ_TWO_KEYS(KC_I, KC_V) {
-            SEND_STRING("Viele Grüße,\n\tDaniel");
+            SEND_STRING("Viele Gr]-e,\n\tDaniel");
         }
         SEQ_TWO_KEYS(KC_I, KC_M) {
-            SEND_STRING("Mit freundlichen Grüßen,\n\tD. Kriesten");
+            SEND_STRING("Mit freundlichen Gr]-en,\n\tD. Kriesten");
         }
         SEQ_THREE_KEYS(KC_A, KC_S, KC_D) {
             register_code(KC_LGUI);
