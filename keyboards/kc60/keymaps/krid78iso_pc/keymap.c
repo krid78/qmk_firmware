@@ -17,7 +17,7 @@
 /** Timeout for the leader
  */
 #undef LEADER_TIMEOUT
-#define LEADER_TIMEOUT 500
+#define LEADER_TIMEOUT 300
 
 /* Layer names */
 #define _BASE 0
@@ -29,17 +29,17 @@
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* Keymap 0: Default Layer
-     * ,-----------------------------------------------------------.
-     * |Esc|  1|  2|  3|  4|  5|  6|  7|  8|  9|  0|  ß|  ´|Backsp |
-     * |-----------------------------------------------------------|
-     * |DTab |  Q|  W|  E|  R|  T|  Z|  U|  I|  O|  P|  Ü|  +|    \|
-     * |-----------------------------------------------------------|
-     * |MO(1) |  A|  S|  D|  F|  G|  H|  J|  K|  L|  Ö|  Ä|  #|Retn|
-     * |-----------------------------------------------------------|
-     * |LSft|  <|  Y|  X|  C|  V|  B|  N|  M|  ,|  .|  -|RShift|Lead| <- remember: those two keys are exchanged
-     * |-----------------------------------------------------------|
-     * |Ctrl|LAlt|LGui|      Space             |Left|Down|  Up|Righ|
-     * `-----------------------------------------------------------'
+     * ,-------------------------------------------------------------------------.
+     * | Esc|   1|   2|   3|   4|   5|   6|   7|   8|   9|   0|   ß|   ´| Backsp |
+     * |-------------------------------------------------------------------------|
+     * | DTab |   Q|   W|   E|   R|   T|   Z|   U|   I|   O|   P|   Ü|   +|     \|
+     * |-------------------------------------------------------------------------|
+     * | MO(1) |   A|   S|   D|   F|   G|   H|   J|   K|   L|   Ö|   Ä|   #| Retn|
+     * |-------------------------------------------------------------------------|
+     * | LSft|   <|   Y|   X|   C|   V|   B|   N|   M|   ,|   .|   -| RShift|Lead| <- remember: those two keys are exchanged
+     * |-------------------------------------------------------------------------|
+     * | Ctrl| LAlt| LGui|        Space                 | Left| Down|   Up| Righ |
+     * `-------------------------------------------------------------------------'
      * DTab is Tab or switches to Layer2
      * the last two keys in the 4th row are pysically exchanged ->
      * thus what ever is given in at pos 4,13 is key 4,14
@@ -51,24 +51,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LSFT, DE_LESS, DE_Y,    DE_X,   DE_C,  DE_V,    DE_B,    DE_N,  DE_M,     DE_COMM, DE_DOT,  DE_MINS, KC_LEAD, KC_RSFT, \
         KC_LCTL, KC_LGUI, KC_LALT,                KC_SPC,                            KC_NO,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT),
     /* Keymap 1: Fn Layer
-     * ,-----------------------------------------------------------.
-     * |  ^| F1| F2| F3| F4| F5| F6| F7| F8| F9|F10|F11|F12|Delete |
-     * |-----------------------------------------------------------|
-     * |     |  @|   |   |   |   |   |   |   |   |   |  {|  }|  Ins|
-     * |-----------------------------------------------------------|
-     * |      |   |   |   |   |   |Lef|Dow| Up|Rgh|  [|  ]|  ||Retn|
-     * |-----------------------------------------------------------|
-     * |LShift  |   |   |   |   |   |   |   |   |   |   |Rshift|Lead|
-     * |-----------------------------------------------------------|
-     * |RCtl|RAlt|RGui|      Space             |Home|PGDN|PGUP| End|
-     * `-----------------------------------------------------------'
+     * ,-----------  ------------------------------------------------------------.
+     * |   ^|  F1|  F2|  F3|  F4|  F5|  F6|  F7|  F8|  F9| F10| F11| F12| Delete |
+     * |-------------------------------------------------------------------------|
+     * |      |   @|    |   €|    |    |    |    |    |    |    |   {|   }|     ||
+     * |-------------------------------------------------------------------------|
+     * |       |    |    |    |    |    | Lef| Dow|  Up| Rgh|   [|   ]|   ~| Retn|
+     * |-------------------------------------------------------------------------|
+     * | LSft|   ||    |    |    |    |    |   ~|    |    |    |    | RShift| Ins| <- remember: those two keys are exchanged
+     * |-------------------------------------------------------------------------|
+     * | RCtl|AltGr| LAlt|        Space                  | Home| PGDN| PGUP|  End|
+     * `-------------------------------------------------------------------------'
      */
     [_LYR1] = KEYMAP( /* Fn-Layer */
         DE_CIRC, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,    KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_DEL,  \
-        KC_TRNS, DE_AT,   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, DE_LCBR, DE_RCBR, KC_INS, \
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_LEFT, KC_DOWN, KC_UP,    KC_RGHT, DE_LBRC, DE_RBRC, DE_PIPE, KC_TRNS, \
-        KC_LSFT, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_LEAD, KC_RSFT, \
-        KC_RCTL, KC_RGUI, DE_ALGR,                   KC_SPC,  KC_NO,                               KC_HOME, KC_PGDN, KC_PGUP, KC_END),
+        KC_TRNS, DE_AT,   KC_TRNS, DE_EURO, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, DE_LCBR, DE_RCBR, DE_PIPE, \
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_LEFT, KC_DOWN, KC_UP,    KC_RGHT, DE_LBRC, DE_RBRC, DE_TILD, KC_TRNS, \
+        KC_LSFT, DE_PIPE, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, DE_TILD, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_INS,  KC_RSFT, \
+        KC_RCTL, DE_ALGR, KC_LALT,                   KC_SPC,  KC_NO,                               KC_HOME, KC_PGDN, KC_PGUP, KC_END),
     /* Keymap 2: Fn Layer
      * ,-----------------------------------------------------------.
      * |RESET| M0| M1| M2|   |   |   |   |   |   |   |   |   | Pwr |
@@ -142,29 +142,46 @@ void matrix_scan_user(void) {
         leader_end();
 
         /** quick access to KeepassXC shortcut */
-        SEQ_ONE_KEY(KC_K) {
+        SEQ_ONE_KEY(DE_K) {
             register_code(KC_LCTL);
             register_code(KC_LALT);
-            register_code(KC_K);
-            unregister_code(KC_K);
+            register_code(DE_K);
+            unregister_code(DE_K);
             unregister_code(KC_LALT);
             unregister_code(KC_LCTL);
         }
-        SEQ_TWO_KEYS(KC_P, KC_I) {
-           IAV_PWD;
+
+        SEQ_ONE_KEY(DE_V) {
+            SEND_STRING("Viele Gr[-e,\n\tDaniel");
         }
+
+        SEQ_ONE_KEY(DE_M) {
+            SEND_STRING("Mit freundlichen Gr[-en,\n\tD. Kriesten");
+        }
+
+        /* my personal vimwiki: ,w ,w i v w d LCtl-Tab 1 Ret */
+        SEQ_ONE_KEY(DE_W) {
+            SEND_STRING(",w,wivwd");
+            register_code(KC_LCTL);
+            register_code(KC_TAB);
+            unregister_code(KC_TAB);
+            unregister_code(KC_LCTL);
+            register_code(DE_1);
+            unregister_code(DE_1);
+            register_code(KC_ENT);
+            unregister_code(KC_ENT);
+        }
+
+        SEQ_TWO_KEYS(DE_P, DE_I) {
+            IAV_PWD;
+        }
+
         /** some often used sentences, Insert ... */
-        SEQ_TWO_KEYS(KC_I, KC_V) {
-            SEND_STRING("Viele Gr]-e,\n\tDaniel");
+        SEQ_TWO_KEYS(DE_I, DE_V) {
+            SEND_STRING("Viele Gr[-e,\n\tDaniel");
         }
-        SEQ_TWO_KEYS(KC_I, KC_M) {
-            SEND_STRING("Mit freundlichen Gr]-en,\n\tD. Kriesten");
-        }
-        SEQ_THREE_KEYS(KC_A, KC_S, KC_D) {
-            register_code(KC_LGUI);
-            register_code(KC_S);
-            unregister_code(KC_S);
-            unregister_code(KC_LGUI);
+        SEQ_TWO_KEYS(DE_I, DE_M) {
+            SEND_STRING("Mit freundlichen Gr[-en,\n\tD. Kriesten");
         }
     }
 }
