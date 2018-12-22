@@ -38,7 +38,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |-------------------------------------------------------------------------|
      * | LSft|   <|   Y|   X|   C|   V|   B|   N|   M|   ,|   .|   -| RShift|Lead| <- remember: those two keys are exchanged
      * |-------------------------------------------------------------------------|
-     * | Ctrl| LAlt| LGui|        Space                 | Left| Down|   Up| Righ |
+     * | Ctrl| LGui| LAlt|        Space                 | Left| Down|   Up| Righ |
      * `-------------------------------------------------------------------------'
      * DTab is Tab or switches to Layer2
      * the last two keys in the 4th row are pysically exchanged ->
