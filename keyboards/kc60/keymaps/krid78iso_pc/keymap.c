@@ -44,7 +44,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * the last two keys in the 4th row are pysically exchanged ->
      * thus what ever is given in at pos 4,13 is key 4,14
      */
-    [_BASE] = LAYOUT( /* Basic Mac QWERTZ */
+    [_BASE] = LAYOUT( /* Basic QWERTZ */
         KC_ESC,  DE_1,    DE_2,    DE_3,   DE_4,  DE_5,    DE_6,    DE_7,  DE_8,     DE_9,    DE_0,    DE_SS,   DE_ACUT, KC_BSPC, \
         DUALTAB, DE_Q,    DE_W,    DE_E,   DE_R,  DE_T,    DE_Z,    DE_U,  DE_I,     DE_O,    DE_P,    DE_UE,   DE_PLUS, DE_BSLS, \
         MO(1),   DE_A,    DE_S,    DE_D,   DE_F,  DE_G,    DE_H,    DE_J,  DE_K,     DE_L,    DE_OE,   DE_AE,   DE_HASH, KC_ENT,  \
@@ -68,7 +68,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TRNS, DE_AT,   KC_TRNS, DE_EURO, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, DE_LCBR, DE_RCBR, DE_PIPE, \
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_LEFT, KC_DOWN, KC_UP,    KC_RGHT, DE_LBRC, DE_RBRC, DE_TILD, KC_TRNS, \
         KC_LSFT, DE_PIPE, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, DE_TILD, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_INS,  KC_RSFT, \
-        KC_RCTL, DE_ALGR, KC_LALT,                   KC_SPC,  KC_NO,                               KC_HOME, KC_PGDN, KC_PGUP, KC_END),
+        KC_RCTL, KC_ALGR, KC_LALT,                   KC_SPC,  KC_NO,                               KC_HOME, KC_PGDN, KC_PGUP, KC_END),
     /* Keymap 2: Fn Layer
      * ,-----------------------------------------------------------.
      * |RESET| M0| M1| M2|   |   |   |   |   |   |   |   |   | Pwr |
