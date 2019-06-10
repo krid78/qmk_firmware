@@ -1,3 +1,12 @@
+/*
+ * similar to:
+ * kbdfans/kbd67/rev1
+ * 1upkeyboards/1up60rgb
+ * keyboards/dz60/
+ * keyboards/jc65/v32u4
+ * keyboards/acr60
+ * keyboards/alf/x2
+ */
 #pragma once
 
 #include "config_common.h"
