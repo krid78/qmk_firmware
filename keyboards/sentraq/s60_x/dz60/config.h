@@ -1,11 +1,11 @@
 /*
  * similar to:
- * kbdfans/kbd67/rev1
- * 1upkeyboards/1up60rgb
- * keyboards/dz60/
- * keyboards/jc65/v32u4
+ * keyboards/1upkeyboards/1up60rgb
  * keyboards/acr60
  * keyboards/alf/x2
+ * keyboards/dz60/
+ * keyboards/jc65/v32u4
+ * keyboards/kbdfans/kbd67/rev1
  */
 #pragma once
 
