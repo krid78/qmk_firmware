@@ -34,7 +34,7 @@
 /* number of backlight levels */
 #define BACKLIGHT_PIN B6
 #ifdef BACKLIGHT_PIN
-#define BACKLIGHT_BREATHING
+/* #define BACKLIGHT_BREATHING */
 #define BACKLIGHT_LEVELS 5
 #endif
 
@@ -55,3 +55,8 @@
 #define RGBLIGHT_SAT_STEP 8
 #define RGBLIGHT_VAL_STEP 8
 #endif
+
+/** Timeout for the leader
+ */
+#undef LEADER_TIMEOUT
+#define LEADER_TIMEOUT 300
