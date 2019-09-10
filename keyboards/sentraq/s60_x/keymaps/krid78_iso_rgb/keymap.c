@@ -50,9 +50,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * ,-----------  ------------------------------------------------------------.
      * |   ^|  F1|  F2|  F3|  F4|  F5|  F6|  F7|  F8|  F9| F10| F11| F12| Delete |
      * |-------------------------------------------------------------------------|
-     * |      |   @|    |   €|    |    |    |    |    |    |    |   {|   }|     ||
-     * |-------------------------------------------------------------------------|
-     * |       |    |    |    |    |    | Lef| Dow|  Up| Rgh|   [|   ]|   ~| Retn|
+     * |      |   @|    |   €|    |    |    |    |    |    |    |   {|   }|      |
+     * |-------------------------------------------------------------------. Retn|
+     * |       |    |    |    |    |    | Lef| Dow|  Up| Rgh|   [|   ]|   \|     |
      * |-------------------------------------------------------------------------|
      * | LSft|   ||    |    |    |    |    |   ~|    |    |    |    | RShift| Ins| <- remember: those two keys are exchanged
      * |-------------------------------------------------------------------------|
@@ -62,7 +62,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_LYR1] = LAYOUT_60_iso_split_rshift( /* Fn-Layer */
         DE_CIRC, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,    KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_DEL,  \
         KC_TRNS, DE_AT,   KC_TRNS, DE_EURO, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, DE_LCBR, DE_RCBR,          \
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_LEFT, KC_DOWN, KC_UP,    KC_RGHT, DE_LBRC, DE_RBRC, DE_TILD, KC_TRNS, \
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_LEFT, KC_DOWN, KC_UP,    KC_RGHT, DE_LBRC, DE_RBRC, DE_BSLS, KC_TRNS, \
         KC_LSFT, DE_PIPE, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, DE_TILD, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS,  KC_RSFT, KC_INS, \
         KC_RCTL, KC_ALGR, KC_LALT,                   KC_SPC,                                       KC_HOME, KC_PGDN, KC_PGUP, KC_END),
     /* Keymap 2: Fn Layer
@@ -70,7 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * | Rst|  M0|  M1|  M2|    |    |    |    |    |    |    |    |    |        |
      * |-------------------------------------------------------------------------|
      * |      |    |    |    |    |    |    |    |    |    |    |    |    |      |
-     * |-------------------------------------------------------------------------|
+     * |-------------------------------------------------------------------.     |
      * |       |    |    |    |    |    |    |    |    |    |    |    |    |     |
      * |-------------------------------------------------------------------------|
      * |     |   <|    |    |    |    |    |    |    |    |    |    |       |    | <- remember: those two keys are exchanged
@@ -104,8 +104,8 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
     switch(id) {
         case 0: // this would trigger when you hit a key mapped as M(0)
             if (record->event.pressed) {
-#ifdef KPASS_PWD
-                return KPASS_PWD;
+#ifdef KPASS_XTRA
+                return KPASS_XTRA;
 #else
                 return MACRO( I(255), T(H), T(E), T(L), T(L), W(255), T(O), END  );
 #endif
@@ -113,8 +113,8 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
             break;
         case 1: // this would trigger when you hit a key mapped as M(1)
             if (record->event.pressed) {
-#ifdef IAV_PWD
-                return IAV_PWD;
+#ifdef IAV_XTRA
+                return IAV_XTRA;
 #else
                 return MACRO( I(255), T(H), T(E), T(L), T(L), W(255), T(O), END  );
 #endif
