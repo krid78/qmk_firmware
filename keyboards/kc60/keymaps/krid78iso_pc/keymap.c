@@ -117,8 +117,8 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
     switch(id) {
         case 0: // this would trigger when you hit a key mapped as M(0)
             if (record->event.pressed) {
-#ifdef KPASS_PWD
-                return KPASS_PWD;
+#ifdef KPASS_XTRA
+                return KPASS_XTRA;
 #else
                 return MACRO( I(255), T(H), T(E), T(L), T(L), W(255), T(O), END  );
 #endif
@@ -126,8 +126,8 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
             break;
         case 1: // this would trigger when you hit a key mapped as M(1)
             if (record->event.pressed) {
-#ifdef IAV_PWD
-                return IAV_PWD;
+#ifdef IAV_XTRA
+                return IAV_XTRA;
 #else
                 return MACRO( I(255), T(H), T(E), T(L), T(L), W(255), T(O), END  );
 #endif
