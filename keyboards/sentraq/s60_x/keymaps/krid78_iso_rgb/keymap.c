@@ -54,7 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |-------------------------------------------------------------------. Retn|
      * |       |    |    |    |    |    | Lef| Dow|  Up| Rgh|   [|   ]|   \|     |
      * |-------------------------------------------------------------------------|
-     * | LSft|   ||    |    |    |    |    |   ~|    |    |    |    | RShift| Ins| <- remember: those two keys are exchanged
+     * | LSft|   ||    |    |    |    |    |   ~|    |    |    |    | RShift|Lead|
      * |-------------------------------------------------------------------------|
      * | RCtl|AltGr| LAlt|        Space                  | Home| PGDN| PGUP|  End|
      * `-------------------------------------------------------------------------'
@@ -63,25 +63,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         DE_CIRC, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,    KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_DEL,  \
         KC_TRNS, DE_AT,   KC_TRNS, DE_EURO, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, DE_LCBR, DE_RCBR,          \
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_LEFT, KC_DOWN, KC_UP,    KC_RGHT, DE_LBRC, DE_RBRC, DE_BSLS, KC_TRNS, \
-        KC_LSFT, DE_PIPE, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, DE_TILD, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS,  KC_RSFT, KC_INS, \
+        KC_LSFT, DE_PIPE, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, DE_TILD, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_RSFT, KC_TRNS, \
         KC_RCTL, KC_ALGR, KC_LALT,                   KC_SPC,                                       KC_HOME, KC_PGDN, KC_PGUP, KC_END),
     /* Keymap 2: Fn Layer
      * ,-----------  ------------------------------------------------------------.
-     * | Rst|  M0|  M1|  M2|    |    |    |    |    |    |    |    |    |        |
+     * | Rst|  M0|  M1|  M2|    |    |    |    |    |    |    |    |    |    Ins |
      * |-------------------------------------------------------------------------|
      * |      |    |    |    |    |    |    |    |    |    |    |    |    |      |
      * |-------------------------------------------------------------------.     |
      * |       |    |    |    |    |    |    |    |    |    |    |    |    |     |
      * |-------------------------------------------------------------------------|
-     * |     |   <|    |    |    |    |    |    |    |    |    |    |       |    | <- remember: those two keys are exchanged
+     * |     |    |    |    |    |    |    |    |    |    |    |    |       |Lead|
      * |-------------------------------------------------------------------------|
      * | Blt0| Blt-| Blt+|        Space                  | Mute| Vol-| Vol+|     |
      * `-------------------------------------------------------------------------'
      */
     [_LYR2] = LAYOUT_60_iso_split_rshift( /* control layer */
-        RESET,   M(0),    M(1),    M(2),    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_PWR,  \
+        RESET,   M(0),    M(1),    M(2),    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_INS,  \
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,          \
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, \
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_AT, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, \
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_RSFT, KC_LEAD, \
         BL_TOGG, BL_DEC,  BL_INC,                    KC_SPC,                                       KC_MUTE, KC_VOLD, KC_VOLU, KC_TRNS),
 };
