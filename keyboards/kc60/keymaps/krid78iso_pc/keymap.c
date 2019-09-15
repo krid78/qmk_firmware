@@ -16,8 +16,9 @@
 
 /** Timeout for the leader
  */
+#define LEADER_PER_KEY_TIMING
 #undef LEADER_TIMEOUT
-#define LEADER_TIMEOUT 500
+#define LEADER_TIMEOUT 300
 
 /* Layer names */
 enum {
