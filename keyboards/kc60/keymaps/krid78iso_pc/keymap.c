@@ -135,7 +135,11 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
             break;
         case 2: // this would trigger when you hit a key mapped as M(2)
             if (record->event.pressed) {
+#ifdef EPASS_XTRA
+                return EPASS_XTRA;
+#else
                 return MACRO( I(255), T(H), T(E), T(L), T(L), W(255), T(O), END  );
+#endif
             }
             break;
     }
