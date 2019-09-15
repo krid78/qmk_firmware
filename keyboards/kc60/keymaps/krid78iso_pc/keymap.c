@@ -12,19 +12,27 @@
 #ifdef BACKLIGHT_ENABLE
 #include "backlight.h"
 #endif
-#include "krid78pwd.h"
+#include "keymap_extras/krid78xtra.h"
 
 /** Timeout for the leader
  */
 #undef LEADER_TIMEOUT
-#define LEADER_TIMEOUT 300
+#define LEADER_TIMEOUT 500
 
 /* Layer names */
-#define _BASE 0
-#define _LYR1 1
-#define _LYR2 2
+enum {
+    _BASE=0,
+    _LYR1,
+    _LYR2,
+    /*
+     * _LYR3,
+     * _LYR4,
+     *  _LYR5,
+     */
+};
 
 /* shortcuts to improve readability */
+#define MO_LYR1 MO(_LYR1)
 #define DUALTAB LT(_LYR2, KC_TAB)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -38,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |-------------------------------------------------------------------------|
      * | LSft|   <|   Y|   X|   C|   V|   B|   N|   M|   ,|   .|   -| RShift|Lead| <- remember: those two keys are exchanged
      * |-------------------------------------------------------------------------|
-     * | Ctrl| LGui| LAlt|        Space                 | Left| Down|   Up| Righ |
+     * | Ctrl| LGui| LAlt|        Space                 | Left| Down|   Up| Right|
      * `-------------------------------------------------------------------------'
      * DTab is Tab or switches to Layer2
      * the last two keys in the 4th row are pysically exchanged ->
@@ -47,18 +55,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT( /* Basic QWERTZ */
         KC_ESC,  DE_1,    DE_2,    DE_3,   DE_4,  DE_5,    DE_6,    DE_7,  DE_8,     DE_9,    DE_0,    DE_SS,   DE_ACUT, KC_BSPC, \
         DUALTAB, DE_Q,    DE_W,    DE_E,   DE_R,  DE_T,    DE_Z,    DE_U,  DE_I,     DE_O,    DE_P,    DE_UE,   DE_PLUS, DE_BSLS, \
-        MO(1),   DE_A,    DE_S,    DE_D,   DE_F,  DE_G,    DE_H,    DE_J,  DE_K,     DE_L,    DE_OE,   DE_AE,   DE_HASH, KC_ENT,  \
+        MO_LYR1, DE_A,    DE_S,    DE_D,   DE_F,  DE_G,    DE_H,    DE_J,  DE_K,     DE_L,    DE_OE,   DE_AE,   DE_HASH, KC_ENT,  \
         KC_LSFT, DE_LESS, DE_Y,    DE_X,   DE_C,  DE_V,    DE_B,    DE_N,  DE_M,     DE_COMM, DE_DOT,  DE_MINS, KC_LEAD, KC_RSFT, \
-        KC_LCTL, KC_LGUI, KC_LALT,                KC_SPC,                            KC_NO,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT),
+        KC_LCTL, KC_LGUI, KC_LALT,                KC_SPC,  KC_NO,                             KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT),
     /* Keymap 1: Fn Layer
-     * ,-----------  ------------------------------------------------------------.
+     * ,-------------------------------------------------------------------------.
      * |   ^|  F1|  F2|  F3|  F4|  F5|  F6|  F7|  F8|  F9| F10| F11| F12| Delete |
      * |-------------------------------------------------------------------------|
      * |      |   @|    |   €|    |    |    |    |    |    |    |   {|   }|     ||
      * |-------------------------------------------------------------------------|
      * |       |    |    |    |    |    | Lef| Dow|  Up| Rgh|   [|   ]|   ~| Retn|
      * |-------------------------------------------------------------------------|
-     * | LSft|   ||    |    |    |    |    |   ~|    |    |    |    | RShift| Ins| <- remember: those two keys are exchanged
+     * | LSft|   ||    |    |    |    |    |   ~|    |    |    |    | RShift|Lead| <- remember: those two keys are exchanged
      * |-------------------------------------------------------------------------|
      * | RCtl|AltGr| LAlt|        Space                  | Home| PGDN| PGUP|  End|
      * `-------------------------------------------------------------------------'
@@ -67,27 +75,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         DE_CIRC, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,    KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_DEL,  \
         KC_TRNS, DE_AT,   KC_TRNS, DE_EURO, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, DE_LCBR, DE_RCBR, DE_PIPE, \
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_LEFT, KC_DOWN, KC_UP,    KC_RGHT, DE_LBRC, DE_RBRC, DE_TILD, KC_TRNS, \
-        KC_LSFT, DE_PIPE, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, DE_TILD, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_INS,  KC_RSFT, \
+        KC_LSFT, DE_PIPE, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, DE_TILD, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_LEAD, KC_RSFT, \
         KC_RCTL, KC_ALGR, KC_LALT,                   KC_SPC,  KC_NO,                               KC_HOME, KC_PGDN, KC_PGUP, KC_END),
     /* Keymap 2: Fn Layer
-     * ,-----------------------------------------------------------.
-     * |RESET| M0| M1| M2|   |   |   |   |   |   |   |   |   | Pwr |
-     * |-----------------------------------------------------------|
-     * |     |   |   |   |   |   |   |   |   |   |   |   |   |     |
-     * |-----------------------------------------------------------|
-     * |      |   |   |   |   |   |   |   |   |   |   |   |        |
-     * |-----------------------------------------------------------|
-     * |        |  <|   |   |   |   |   |   |   |   |   |          |
-     * |-----------------------------------------------------------|
-     * |Blt0|Blt-|Blt+|      Space             |Mute|Vol-|Vol+|    |
-     * `-----------------------------------------------------------'
+     * ,-------------------------------------------------------------------------.
+     * |Rese|M(0)|M(1)|M(2)|    |    |    |    |    |    |    |    |    | Insert |
+     * |-------------------------------------------------------------------------|
+     * |      |    |    |    |    |    |    |    |    |    |    |    |    |      |
+     * |-------------------------------------------------------------------------|
+     * |       |    |    |    |    |    |    |    |    |    |    |    |    |     |
+     * |-------------------------------------------------------------------------|
+     * | LSft|   ||    |    |    |    |    |   ~|    |    |    |    | RShift|Lead| <- remember: those two keys are exchanged
+     * |-------------------------------------------------------------------------|
+     * |Blt0 |Blt- |Blt+ |        Space                  |Mute |Vol- |Vol+ | Pwr |
+     * `-------------------------------------------------------------------------'
      */
     [_LYR2] = LAYOUT( /* control layer */
-        RESET,   M(0),    M(1),    M(2),    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_PWR,  \
+        RESET,   M(0),    M(1),    M(2),    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_INS,  \
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, \
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, \
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_LEAD, KC_RSFT, \
-        BL_TOGG, BL_DEC,  BL_INC,                    KC_SPC,  KC_NO,                               KC_MUTE, KC_VOLD, KC_VOLU, KC_TRNS),
+        BL_TOGG, BL_DEC,  BL_INC,                    KC_SPC,  KC_NO,                               KC_MUTE, KC_VOLD, KC_VOLU, KC_PWR),
 };
 
 /*
