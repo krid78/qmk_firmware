@@ -186,10 +186,10 @@ void matrix_scan_user(void) {
         }
 
         /** some often used sentences, Insert ... */
-        SEQ_TWO_KEYS(DE_I, DE_V) {
+        SEQ_TWO_KEYS(DE_I, DE_X) {
             SEND_STRING("Viele Gr[-e,\n\tDaniel");
         }
-        SEQ_TWO_KEYS(DE_I, DE_M) {
+        SEQ_TWO_KEYS(DE_I, DE_Y) {
             SEND_STRING("Mit freundlichen Gr[-en,\n\tD. Kriesten");
         }
     }
